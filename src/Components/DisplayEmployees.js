@@ -105,129 +105,124 @@ function DisplayEmployees(props) {
 
     return (
       <div>
- 
-        
-
-  
-        
-
-      
-    <List
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Nested List Items
-        </ListSubheader>
-      }
-      className={classes.root}
-    >
-      
-     
-      <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="senior engineer list" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-
-      {seniorEngineer.map(employee=>(
-          //<li>{todo}</li>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-        <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                    <DraftsIcon />
-                </ListItemIcon>
-        
-                <ListItemText primary={employee.data.employeeName+":"+employee.ID} />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  className={classes.button}
-                  startIcon={<DeleteIcon />}
-                  onClick={() => { deleteEmployee(employee.ID) }}
-                >
-                  Delete
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  className={classes.button}
-                  startIcon={<EditIcon />}
-                  onClick = {() => { editEmployee(employee.ID) }}
-                >
-                  Edit
-                </Button>
-
-
-         </ListItem>
-        </List>
-      </Collapse>
-
-      
+          <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            subheader={
+              <ListSubheader component="div" id="nested-list-subheader">
+                Nested List Items
+              </ListSubheader>
+            }
+            className={classes.root}
+          >
+            
           
-          
-        ))}
+            <ListItem button onClick={handleClick}>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="senior engineer list" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+
+            {seniorEngineer.map(employee=>(
+                //<li>{todo}</li>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                      <ListItemIcon>
+                          <DraftsIcon />
+                      </ListItemIcon>
+              
+                      <ListItemText primary={employee.data.employeeName+":"+employee.ID} />
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        className={classes.button}
+                        startIcon={<DeleteIcon />}
+                        onClick={() => { deleteEmployee(employee.ID) }}
+                      >
+                        Delete
+                      </Button>
+                      <Link to='/edit' ><Button
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        className={classes.button}
+                        startIcon={<EditIcon />}
+                        onClick = {() => { editEmployee(employee.ID) }}
+                      >
+                        Edit
+                      </Button></Link>
 
 
-    <ListItem button onClick={handleClick2}>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="junior  engineers list" />
-        {open2 ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
+              </ListItem>
+              </List>
+            </Collapse>
 
-      {juniorEngineer.map(employee=>(
-          //<li>{todo}</li>
-          <Collapse in={open2} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-        <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                    <DraftsIcon />
-                </ListItemIcon>
-        
-                <ListItemText primary={employee.data.employeeName+":"+employee.ID} />
+            
                 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  className={classes.button}
-                  startIcon={<DeleteIcon />}
-                  onClick={() => { deleteEmployee(employee.ID) }}
-                >
-                  Delete
-                </Button>
-                <Link to='/edit' ><Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  className={classes.button}
-                  startIcon={<EditIcon />}
-                  onClick = {() => { editEmployee(employee.ID) }}
-                  
-                >
-                  Edit
-                </Button></Link>
                 
-         </ListItem>
-        </List>
-      </Collapse>
-
-      
-          
-          
-        ))}
+              ))}
 
 
+            <ListItem button onClick={handleClick2}>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="junior  engineers list" />
+              {open2 ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
 
-      
-    </List>
+            {juniorEngineer.map(employee=>(
+                //<li>{todo}</li>
+                <Collapse in={open2} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                      <ListItemIcon>
+                          <DraftsIcon />
+                      </ListItemIcon>
+              
+                      <ListItemText primary={employee.data.employeeName+":"+employee.ID} />
+                      
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        className={classes.button}
+                        startIcon={<DeleteIcon />}
+                        onClick={() => { deleteEmployee(employee.ID) }}
+                      >
+                        Delete
+                      </Button>
+                      <Link to='/edit' >
+                          <Button
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          className={classes.button}
+                          startIcon={<EditIcon />}
+                          onClick = {() => { editEmployee(employee.ID) }}
+                          
+                        >
+                          Edit
+                        </Button>
+                      </Link>
+                      
+              </ListItem>
+              </List>
+            </Collapse>
+
+            
+                
+                
+              ))}
+
+
+
+            
+          </List>
     
     
             
